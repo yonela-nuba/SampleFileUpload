@@ -7,5 +7,7 @@ namespace SampleFileUpload.ViewModel
     public class FileUploadViewModel : FileCreation
     {
         public byte[] FileData { get; set; }
+
+        public List<FileCreation> SystemFiles { get; set; }
     }
 }

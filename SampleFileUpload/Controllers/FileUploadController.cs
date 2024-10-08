@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SampleFileUpload.Models;
+using SampleFileUpload.ViewModel;
 
 namespace SampleFileUpload.Controllers
 {
     public class FileUploadController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(FileUploadViewModel vm)
         {
-            return View("Index", "FileUpload");
+            vm.SystemFiles = new List<FileCreation>();
+            return View(vm);
         }
     }
 }

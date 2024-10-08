@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SampleFileUpload.ViewModel.FileUploadViewModel
+@{
     ViewData["Title"] = "Upload File";
 }
 
@@ -10,16 +11,55 @@
 
 </div>
 <div class="col-md-12">
-    <div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
     
-        <div class="col-md-6">
-            <input type="file" class="form-control" accept=".jpg, .jpeg, .png" />
+            <div class="col-md-6">
+                <label asp-for="FileName"></label>
+                <input type="file" name="file" class="form-control" accept=".jpg, .jpeg, .png" />
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Description"></label>
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <input type="submit" value="Upload File" class="btn btn-primary mt-2" />
+            </div>
         </div>
-        <div class="col-md-6">
-            <input type="text" class="form-control" />
-        </div>
-        <div class="col-md-6">
-            <input type="submit" value="Upload File" class="btn btn-primary mt-2" />
-        </div>
-    </div>
+    </form>
 </div>
+<hr />
+
+@if(Model.SystemFiles.Count == 0)
+{
+    <caption>There are no records in the system!</caption>
+}else{
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>@Model.Id</th>
+            <th>@Model.FileName</th>
+            <th>@Model.FileType</th>
+            <th>@Model.Extension</th>
+            <th>@Model.UploadedBy</th>
+            <th>@Model.UploadedOn</th>
+            <th>@Model.Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var file in Model.SystemFiles)
+        {
+            <tr>
+                <td>@file.Id</td>
+                <td>@file.FileName</td>
+                <td>@file.FileType</td>
+                <td>@file.Extension</td>
+                <td>@file.UploadedBy</td>
+                <td>@file.UploadedOn</td>
+                <td>@file.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+            }
