@@ -6,22 +6,25 @@
     <h1 class="display-4">Upload a File Using MVC</h1>
 
     <br />
-
-    <div class="col-4">
+</div>
+    
         <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
-            <div class="mb3">
-                <input type="file" name="file" class="form-control" />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <input type="file" name="file" form-control" accept=".jpg, .jpeg, .png" />
+                    </div>            
+                    <div class="col-md-6">
+                        <input type="submit" value="Upload File" class="btn btn-primary" />
+                    </div>
+                    <span class="text-success">
+                        @ViewBag.Message
+                    </span>
+                </div>
             </div>
-            <br />
-            <div class="mb3">
-                <input type="submit" value="Upload File" class="btn btn-primary" />
-            </div>
-            <span class="text-success">
-                @ViewBag.Message
-            </span>
         </form>
 
-    </div>
+   
 
     
-</div>
+
