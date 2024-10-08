@@ -2,11 +2,11 @@
 
 namespace SampleFileUpload.Controllers
 {
-    public class FileUploadController1 : Controller
+    public class FileUploadController : Controller
     {
         public IActionResult Index()
         {
-            return View();
+            return View("Index", "FileUpload");
         }
     }
 }
