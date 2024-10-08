@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using SampleFileUpload.Models;
 namespace SampleFileUpload.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options) :base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :base(options)
         {
                 
         }

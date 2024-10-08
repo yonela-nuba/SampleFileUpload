@@ -23,5 +23,8 @@ namespace SampleFileUpload.Models
 
         [Display(Name = "Uploaded On")]
         public DateTime UploadedOn { get; set;}
+
+        [Display(Name = "File Path")]
+        public string FilePath { get; set; }
     }
 }
