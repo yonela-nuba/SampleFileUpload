@@ -8,18 +8,15 @@ namespace SampleFileUpload.Controllers
     {
 
         private readonly IWebHostEnvironment _webHost;
+        
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(IWebHostEnvironment webHost)
-        {
-                _webHost = webHost;
-        }
-       // private readonly ILogger<HomeController> _logger;
-
-        /*public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHost)
         {
             _logger = logger;
+            _webHost = webHost;
         }
-        */
+        
         public IActionResult Index()
         {
             return View();

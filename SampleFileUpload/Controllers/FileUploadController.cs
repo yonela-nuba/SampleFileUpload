@@ -6,7 +6,9 @@ namespace SampleFileUpload.Controllers
 {
     public class FileUploadController : Controller
     {
-        public IActionResult Index(FileUploadViewModel vm)
+        //Add ApplicationDbContext here
+
+        public IActionResult Index(FileUploadViewModel vm, IFormFile file)
         {
             vm.SystemFiles = new List<FileCreation>();
             return View(vm);
